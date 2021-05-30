@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
 import geekseat.witchsaga.spellbreaker.RepelTheWitch;
@@ -13,21 +12,21 @@ import geekseat.witchsaga.spellbreaker.models.Person;
 
 class WitchSagaUnitTest {
 
-	@Ignore
+	@Test
 	void fibTest() {
 		RepelTheWitch rtw = new RepelTheWitch();
 		int fibResult = rtw.fibonacciSequenceGenerator(2);
 		assertEquals(1, fibResult);
 	}
 
-	@Ignore
+	@Test
 	void killCountTest() {
 		RepelTheWitch rtw = new RepelTheWitch();
 		int killCount = rtw.witchKillCountOfNYear(6);
 		assertEquals(20, killCount);
 	}
 
-	@Ignore
+	@Test
 	void killCountTestPrinted() {
 		RepelTheWitch rtw = new RepelTheWitch();
 		int killCount = rtw.witchKillCountOfNYearPrinted(102 - 69);
