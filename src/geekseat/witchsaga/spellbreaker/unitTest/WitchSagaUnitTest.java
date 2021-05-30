@@ -9,29 +9,28 @@ import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
 import geekseat.witchsaga.spellbreaker.RepelTheWitch;
-import geekseat.witchsaga.spellbreaker.Weakness;
 import geekseat.witchsaga.spellbreaker.models.Person;
 
 class WitchSagaUnitTest {
 
 	@Ignore
 	void fibTest() {
-		Weakness ww = new Weakness();
-		int fibResult = ww.fibonacciSequenceGenerator(2);
+		RepelTheWitch rtw = new RepelTheWitch();
+		int fibResult = rtw.fibonacciSequenceGenerator(2);
 		assertEquals(1, fibResult);
 	}
 
 	@Ignore
 	void killCountTest() {
-		Weakness ww = new Weakness();
-		int killCount = ww.witchKillCountOfNYear(6);
+		RepelTheWitch rtw = new RepelTheWitch();
+		int killCount = rtw.witchKillCountOfNYear(6);
 		assertEquals(20, killCount);
 	}
 
 	@Ignore
 	void killCountTestPrinted() {
-		Weakness ww = new Weakness();
-		int killCount = ww.witchKillCountOfNYearPrinted(102 - 69);
+		RepelTheWitch rtw = new RepelTheWitch();
+		int killCount = rtw.witchKillCountOfNYearPrinted(102 - 69);
 		assertEquals(9227464, killCount);
 	}
 
@@ -46,7 +45,7 @@ class WitchSagaUnitTest {
 
 		Double saveTheVillager = 0d;
 		saveTheVillager = ktw.saveTheVillager(villagers);
-		double ave = (double) (16 + 9227464)/4;
+		double ave = (double) (16 + 9227464) / 4;
 		System.out.println(ave);
 		assertEquals(ave, saveTheVillager);
 	}
