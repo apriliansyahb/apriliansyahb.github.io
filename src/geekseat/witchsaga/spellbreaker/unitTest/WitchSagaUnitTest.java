@@ -32,8 +32,8 @@ class WitchSagaUnitTest {
 	@Ignore
 	void killCountTestPrinted() {
 		Weakness ww = new Weakness();
-		int killCount = ww.witchKillCountOfNYearPrinted(6);
-		assertEquals(20, killCount);
+		int killCount = ww.witchKillCountOfNYearPrinted(102-69);
+		assertEquals(9227464, killCount);
 	}
 
 	@Test
@@ -43,9 +43,10 @@ class WitchSagaUnitTest {
 		villagers.add(new Person(10, 12));
 		villagers.add(new Person(13, 17));
 		villagers.add(new Person(10, 14));
+		villagers.add(new Person(69, 102));
 		
 		Double saveTheVillager = ktw.saveTheVillager(villagers);
-		assertEquals((double)16/3, saveTheVillager);
+		assertEquals((double)(16+9227464)/4, saveTheVillager);
 	}
 
 }
