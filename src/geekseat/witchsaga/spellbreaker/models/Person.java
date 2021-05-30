@@ -38,4 +38,12 @@ public class Person {
 		return "Person [ageOfDeath=" + ageOfDeath + ", yearOfDeah=" + yearOfDeah + "]";
 	}
 
+	public Person(int ageOfDeath, int yearOfDeah) {
+		super();
+		this.ageOfDeath = ageOfDeath;
+		this.yearOfDeah = yearOfDeah;
+	}
+	
+	
+
 }
