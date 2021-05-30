@@ -14,7 +14,6 @@ import geekseat.witchsaga.spellbreaker.models.Person;
 
 class WitchSagaUnitTest {
 
-
 	@Ignore
 	void fibTest() {
 		Weakness ww = new Weakness();
@@ -32,7 +31,7 @@ class WitchSagaUnitTest {
 	@Ignore
 	void killCountTestPrinted() {
 		Weakness ww = new Weakness();
-		int killCount = ww.witchKillCountOfNYearPrinted(102-69);
+		int killCount = ww.witchKillCountOfNYearPrinted(102 - 69);
 		assertEquals(9227464, killCount);
 	}
 
@@ -44,9 +43,12 @@ class WitchSagaUnitTest {
 		villagers.add(new Person(13, 17));
 		villagers.add(new Person(10, 14));
 		villagers.add(new Person(69, 102));
-		
-		Double saveTheVillager = ktw.saveTheVillager(villagers);
-		assertEquals((double)(16+9227464)/4, saveTheVillager);
+
+		Double saveTheVillager = 0d;
+		saveTheVillager = ktw.saveTheVillager(villagers);
+		double ave = (double) (16 + 9227464)/4;
+		System.out.println(ave);
+		assertEquals(ave, saveTheVillager);
 	}
 
 }

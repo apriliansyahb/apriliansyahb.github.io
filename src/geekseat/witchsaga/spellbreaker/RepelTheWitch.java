@@ -9,14 +9,16 @@ public class RepelTheWitch {
 	public double saveTheVillager(List<Person> villagers) {
 		int totalNumberKilled = 0;
 		Weakness ww = new Weakness();
-		//Populating the total person killed at given years the witch start killing.
+		// Populating the total person killed at given years the witch start killing.
 		for (Person p : villagers) {
-			int personBornOnYear = p.getYearOfDeah() - p.getAgeOfDeath()  ;
+			int personBornOnYear = p.getYearOfDeah() - p.getAgeOfDeath();
+			if (personBornOnYear < 1)
+				return -1d;
 			int killedOnThatYear = ww.witchKillCountOfNYear((int) personBornOnYear);
 			totalNumberKilled += killedOnThatYear;
 		}
-		//return the average person gets killed by the witch.
-		return (double)totalNumberKilled/ villagers.size();
+		// return the average person gets killed by the witch.
+		return (double) totalNumberKilled / villagers.size();
 	}
 
 }
