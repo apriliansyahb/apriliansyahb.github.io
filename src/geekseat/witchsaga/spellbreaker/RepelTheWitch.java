@@ -23,7 +23,7 @@ public class RepelTheWitch {
 	public int witchKillCountOfNYear(int year) {
 		int killCount = 0;
 		for (int i = 1; i <= year; i++) {
-			int killOfYear = fibonacciSequenceGenerator(i);
+			int killOfYear = fiboOnO1(i);
 			killCount += killOfYear;
 		}
 		return killCount;
@@ -33,7 +33,7 @@ public class RepelTheWitch {
 		int killCount = 0;
 		String killNumbers = "";
 		for (int i = 1; i <= year; i++) {
-			int killOfYear = fibonacciSequenceGenerator(i);
+			int killOfYear = fiboOnO1(i);
 			killNumbers += killOfYear + "+";
 			killCount += killOfYear;
 			System.out.println(String.format("On year #%s she kills %s = %s villagers", i,
@@ -49,5 +49,30 @@ public class RepelTheWitch {
 			return fibonacciSequenceGenerator(sequence - 1) + fibonacciSequenceGenerator(sequence - 2);
 		}
 	}
+	
+	public int fiboOnO1(int n) {
+		int a = 0, b = 1, c;
+        if (n == 0)
+            return a;
+        for (int i = 2; i <= n; i++)
+        {
+            c = a + b;
+            a = b;
+            b = c;
+        }
+        return b;
+	}
+	
+//	public static void main(String[] args) {
+//		int n= 7;
+//		System.out.println(fibonacciSequenceGenerator(n));
+//		System.out.println(fib(n));
+//		
+//		double Phi = (1+Math.sqrt(5))/2;
+//		double phi = (1-Math.sqrt(5))/2;
+//		
+//		int fib = (int) ((Math.pow(Phi, n) - Math.pow(phi, n))/Math.sqrt(5));
+//		System.out.println(fib);
+//	}
 
 }
