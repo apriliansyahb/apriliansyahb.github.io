@@ -1,35 +1,37 @@
 package geekseat.witchsaga.spellbreaker.models;
 
+import java.math.BigInteger;
+
 public class Person {
 
-	private int ageOfDeath;
-	private int yearOfDeah;
+	private BigInteger ageOfDeath;
+	private BigInteger yearOfDeah;
 
 	/**
 	 * @return the ageOfDeath
 	 */
-	public int getAgeOfDeath() {
+	public BigInteger getAgeOfDeath() {
 		return ageOfDeath;
 	}
 
 	/**
 	 * @param ageOfDeath the ageOfDeath to set
 	 */
-	public void setAgeOfDeath(int ageOfDeath) {
+	public void setAgeOfDeath(BigInteger ageOfDeath) {
 		this.ageOfDeath = ageOfDeath;
 	}
 
 	/**
 	 * @return the yearOfDeah
 	 */
-	public int getYearOfDeah() {
+	public BigInteger getYearOfDeah() {
 		return yearOfDeah;
 	}
 
 	/**
 	 * @param yearOfDeah the yearOfDeah to set
 	 */
-	public void setYearOfDeah(int yearOfDeah) {
+	public void setYearOfDeah(BigInteger yearOfDeah) {
 		this.yearOfDeah = yearOfDeah;
 	}
 
@@ -38,12 +40,10 @@ public class Person {
 		return "Person [ageOfDeath=" + ageOfDeath + ", yearOfDeah=" + yearOfDeah + "]";
 	}
 
-	public Person(int ageOfDeath, int yearOfDeah) {
+	public Person(BigInteger ageOfDeath, BigInteger yearOfDeah) {
 		super();
 		this.ageOfDeath = ageOfDeath;
 		this.yearOfDeah = yearOfDeah;
 	}
-	
-	
 
 }

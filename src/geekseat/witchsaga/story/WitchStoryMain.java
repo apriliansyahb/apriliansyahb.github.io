@@ -3,6 +3,8 @@ package geekseat.witchsaga.story;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,18 +34,19 @@ public class WitchStoryMain {
 		System.out.println(story);
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("Now, let's count how many villager who born after the witch takes control in your village?");
-		int numberOfVillager = readLineNumber(reader);
+		System.out
+				.println("Now, let's count how many villager who born after the witch takes control in your village?");
+		BigInteger numberOfVillager = readLineNumber(reader);
 		System.out.println(String.format(
 				"Okay, there are %s villager, lets get their Age of Death and Year of Death for each villager.",
 				numberOfVillager));
 		List<Person> villagers = new ArrayList<Person>();
-		for (int i = 0; i < numberOfVillager; i++) {
-			System.out.println(String.format("Villager #%s", i + 1));
+		for (BigInteger i = BigInteger.ZERO; i.compareTo(numberOfVillager) < 0; i = i.add(BigInteger.ONE)) {
+			System.out.println(String.format("Villager #%s", i.add(BigInteger.ONE)));
 			System.out.println("Age of Death : ");
-			int aod = readLineNumber(reader);
+			BigInteger aod = readLineNumber(reader);
 			System.out.println(String.format("Year of Death : "));
-			int yod = readLineNumber(reader);
+			BigInteger yod = readLineNumber(reader);
 			villagers.add(new Person(aod, yod));
 		}
 
@@ -53,25 +56,33 @@ public class WitchStoryMain {
 			System.out.println(String.format("Person #%s, with Age of Death = %s and Year of Death = %s", p,
 					person.getAgeOfDeath(), person.getYearOfDeah()));
 			p++;
-			if(person.getYearOfDeah()-person.getAgeOfDeath()<1) {
-				System.out.println("I guess you listed a person who born BEFORE the witch takes control, please redo the listing from the start.");
+
+			if (person.getAgeOfDeath().signum() == -1 || person.getYearOfDeah().signum() == -1) {
+				System.out.println(
+						"You put minus as either age of death or year of born, please redo the listing from the start.");
+				System.exit(0);
+			}
+			if (person.getYearOfDeah().subtract(person.getAgeOfDeath()).signum() == -1) {
+				System.out.println(
+						"I guess you listed a person who born BEFORE the witch takes control, please redo the listing from the start.");
 				System.exit(0);
 			}
 		}
-		System.out.println("Calculating the average number of " + 
-				"people the witch killed on year of birth of those people..");
+		System.out.println(
+				"Calculating the average number of " + "people the witch killed on year of birth of those people..");
 		RepelTheWitch rtw = new RepelTheWitch();
 		double average = rtw.saveTheVillager(villagers);
-		System.out.println(String.format("Now, tell the witch that the average people the witch kills for this village will be %s!", average));
+		System.out.println(String.format(
+				"Now, tell the witch that the average people the witch kills for this village will be %s!", new BigDecimal(average)));
 
 	}
 
-	private static int readLineNumber(BufferedReader reader) {
-		Integer result = null;
+	private static BigInteger readLineNumber(BufferedReader reader) {
+		BigInteger result = null;
 		while (result == null) {
 			try {
 				String line = reader.readLine();
-				result = Integer.parseInt(line);
+				result = new BigInteger(line);
 			} catch (NumberFormatException e) {
 				System.out.println("Input can only be integer, please re-input the number.");
 			} catch (IOException e) {
